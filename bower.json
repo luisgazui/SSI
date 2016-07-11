@@ -1,0 +1,24 @@
+{
+  "name": "Sems-Prose",
+  "description": "Proyecto de seguridad industrial",
+  "main": "/resources/views/layouts/app.blade.php",
+  "authors": [
+    "Luis Gazui <luisgazui@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/luisgazui/SSI",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-toggle": "^2.2.2",
+    "bootstrap": "^3.3.6",
+    "datatables": "^1.10.12",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
+  }
+}

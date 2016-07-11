@@ -12,6 +12,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use DB;
+use Illuminate\Support\Collection as Collection;
 
 class AreasFisicasController extends InfyOmBaseController
 {
@@ -104,13 +105,18 @@ class AreasFisicasController extends InfyOmBaseController
      */
     public function show($id)
     {
-        $areasFisicas = $this->areasFisicasRepository->findWithoutFail($id);
-
-        if (empty($areasFisicas)) {
-            Flash::error('AreasFisicas not found');
-
-            return redirect(route('areasFisicas.index'));
-        }
+       $IdArea = $id;
+        $Descripcion = '';
+        $IdUsuario = '';
+        $Idioma = '';                       
+ 
+         
+        
+        $areasFisicas = DB::select("EXEC [dbo].[sc_AreasFisicas_Consulta]
+                                '".$IdArea."',
+                                '".$Descripcion."',
+                                '".$IdUsuario."',
+                                '".$Idioma."'")->first();
 
         return view('areasFisicas.show')->with('areasFisicas', $areasFisicas);
     }
@@ -136,7 +142,10 @@ class AreasFisicasController extends InfyOmBaseController
                                 '".$Descripcion."',
                                 '".$IdUsuario."',
                                 '".$Idioma."'");
-
+        //dd($areasFisicas);
+        $collection = Collection::make($areasFisicas);
+        
+        $areas = $collection->first();
         if (empty($areasFisicas)) {
             
             Flash::error('AreasFisicas not found');
@@ -144,7 +153,7 @@ class AreasFisicasController extends InfyOmBaseController
             return redirect(route('areasFisicas.index'));
         }
 
-        return view('areasFisicas.edit')->with('areasFisicas', $areasFisicas);
+        return view('areasFisicas.edit')->with('areasFisicas',  $areas );
     }
 
     /**

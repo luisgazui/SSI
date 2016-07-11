@@ -15,7 +15,8 @@
         "infyomlabs/swagger-generator": "dev-master",
         "jlapp/swaggervel": "dev-master",
         "doctrine/dbal": "~2.3",
-        "infyomlabs/generator-builder": "dev-master"
+        "infyomlabs/generator-builder": "dev-master",
+        "illuminate/html": "5.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

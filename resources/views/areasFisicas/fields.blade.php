@@ -1,11 +1,9 @@
 <!-- Area Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Id', 'Id:') !!}
-    {!! Form::text('Id', null, ['class' => 'form-control']) !!}
     {!! Form::label('Area', 'Area:') !!}
     {!! Form::text('Area', null, ['class' => 'form-control']) !!}
     {!! Form::label('Enabled', 'Habilitado:') !!}
-    {!! Form::text('Enabled', null, ['class' => 'form-control']) !!}
+    {!! Form::checkbox('Enabled', null, ['class' => 'form-control', 'data-toggle' => "toggle", 'id'=> 'Habilitado']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -74,3 +74,5 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::resource('departamentosProses', 'DepartamentosProseController');
+
+Route::resource('perfilesProses', 'PerfilesProseController');

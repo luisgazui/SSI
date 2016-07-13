@@ -237,6 +237,44 @@
 
     });
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#perfilesProses-table').dataTable( {
+        
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend:'csv',
+                title:'Perfiles_Prose'
+            }, 
+            {
+                extend:'excel',
+                title: 'Perfiles_Prose'
+                 
+            }, 
+            {
+                extend:'pdf',
+                title: 'Perfiles_Prose'
+            }
+        
+                ],
+        "columnDefs": [{
+            "targets": 'nosort',
+                        "orderable" : false,
+                        "searchable": false,
+                        "printable" : false,
+                        "exportable": false
+        
+                       }]
+        
+       
+        
+       });
+
+    });
+</script>
+
     @yield('scripts')
 </body>
 </html>

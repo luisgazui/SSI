@@ -14,6 +14,7 @@
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="skin-blue sidebar-mini">
@@ -156,9 +157,34 @@
     <!-- Datatables -->
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#areasFisicas-table').dataTable( {
+            dom: 'Bfrtip',
+        buttons: [
+            {
+                extend:'csv',
+                title:'Areas_Fisicas'
+            }, 
+            {
+                extend:'excel',
+                title: 'Areas_Fisicas'
+                 
+            }, 
+            {
+                extend:'pdf',
+                title: 'Areas_Fisicas'
+            }
+        
+                ],
         "columnDefs": [{
             "targets": 'nosort',
                         "orderable" : false,
@@ -173,6 +199,43 @@
     $(function() {
         $('#Enabled').bootstrapToggle();
     })
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#departamentosProses-table').dataTable( {
+        
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend:'csv',
+                title:'Departamentos_Prose'
+            }, 
+            {
+                extend:'excel',
+                title: 'Departamentos_Prose'
+                 
+            }, 
+            {
+                extend:'pdf',
+                title: 'Departamentos_Prose'
+            }
+        
+                ],
+        "columnDefs": [{
+            "targets": 'nosort',
+                        "orderable" : false,
+                        "searchable": false,
+                        "printable" : false,
+                        "exportable" : false
+        
+                       }]
+        
+       
+        
+       });
+
+    });
 </script>
     @yield('scripts')
 </body>

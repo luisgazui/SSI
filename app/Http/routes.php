@@ -45,12 +45,17 @@ Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuil
 
 Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate');
 
-Route::resource('areasFisicas', 'AreasFisicasController');
-
-
 
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@logout');
 
-Route::get('/home', 'HomeController@index');
+
+
+Route::resource('areasFisicas', 'AreasFisicasController');
+Route::resource('departamentosProses', 'DepartamentosProseController');
+
+
+
+
+

@@ -50,8 +50,6 @@ Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@logout');
 
-
-
 Route::resource('areasFisicas', 'AreasFisicasController');
 Route::resource('departamentosProses', 'DepartamentosProseController');
 

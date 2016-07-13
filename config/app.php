@@ -159,6 +159,7 @@ return [
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         \InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -214,7 +215,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
-        'Html'      => Collective\Html\HtmlFacade::class,       
+        'Html'      => Collective\Html\HtmlFacade::class,  
+        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,     
         'Flash'     => Laracasts\Flash\Flash::class
     ],
 

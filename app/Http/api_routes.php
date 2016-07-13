@@ -14,3 +14,5 @@
 
 
 Route::resource('areasFisicas', 'AreasFisicasAPIController');
+
+Route::resource('departamentosProses', 'DepartamentosProseAPIController');

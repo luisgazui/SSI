@@ -23,9 +23,10 @@
 </div>
 
 <!-- A Partir De Field -->
-<div class="form-group col-sm-6">
+<class='input-group date' id='datetimepicker1'>
     {!! Form::label('A partir de', 'A Partir De:') !!}
-    {!! Form::date('A partir de', null, ['class' => 'form-control datetimepicker1', 'id' => 'datetimepicker1']) !!}
+    {!! Form::date('A partir de', null, ['class' => 'form-control', 'id' => 'datetimepicker1']) !!}
+
 </div>
 
 <!-- Idperfil Field -->

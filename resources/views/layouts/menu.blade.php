@@ -6,3 +6,7 @@
     <a href="{!! route('departamentosProses.index') !!}"><i class="fa fa-edit"></i><span>DepartamentosProses</span></a>
 </li>
 
+<li class="{{ Request::is('perfilesProses*') ? 'active' : '' }}">
+    <a href="{!! route('perfilesProses.index') !!}"><i class="fa fa-edit"></i><span>PerfilesProses</span></a>
+</li>
+

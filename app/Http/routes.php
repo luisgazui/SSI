@@ -53,7 +53,4 @@ Route::get('logout', 'Auth\AuthController@logout');
 Route::resource('areasFisicas', 'AreasFisicasController');
 Route::resource('departamentosProses', 'DepartamentosProseController');
 
-
-
-
-
+Route::resource('perfilesProses', 'PerfilesProseController');

@@ -25,6 +25,15 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="{{ asset('/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('/js/defaults-es_CL.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-datetimepicker.min.js') }}"></script>
+
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -102,7 +111,7 @@
     $(document).ready(function() {
         $('#perfilesProses-table').dataTable( {
         
-        dom: 'Bfrtip',
+        dom: 'Brtip',
         buttons: [
             {
                 extend:'csv',
@@ -131,5 +140,5 @@
        
         
        });
-    });
+});
 </script>       

@@ -19,6 +19,9 @@ http://labs.infyom.com/laravelgenerator/docs/fields-input-guide
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-select.min.css">
+    
+
 </head>
 
 <body class="skin-blue sidebar-mini">
@@ -168,6 +171,10 @@ http://labs.infyom.com/laravelgenerator/docs/fields-input-guide
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <!--Select-->
+    <script src="/public/js/bootstrap-select.min.js"></script>
+    <script src="/public/js/defaults-es_CL.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function() {

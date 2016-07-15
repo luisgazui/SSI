@@ -30,21 +30,22 @@ class PerfilesProseController extends InfyOmBaseController
      * @param Request $request
      * @return Response
      */
+
+
     public function index(Request $request)
     {
-        $idEmpresa             = '';   
-        $idDepartamento        = '';
-        $idArea                = '';
-        $idPuesto              = '';
-        $idPerfil              = '';
-        $nombre                = '';
-        $IdUsuario             = '';    
-        $esAdministrador       = '';
-        $esAdministradorProse  = '';
-        $Idioma                = '';                   
- 
-         
         
+        $idEmpresa = '';   
+        $idDepartamento = '';
+        $idArea = '';
+        $idPuesto = '';
+        $idPerfil = '';
+        $nombre = '';
+        $idUsuario = '';    
+        $esAdministrador = '';
+        $esAdministradorProse = '';
+        $idioma = '';            
+ 
         $perfilesProses = DB::select("EXEC [dbo].[sc_usuariosProse_Busca]
                                 '".$idEmpresa."', 
                                 '".$idDepartamento."', 
@@ -52,14 +53,91 @@ class PerfilesProseController extends InfyOmBaseController
                                 '".$idPuesto."',
                                 '".$idPerfil."', 
                                 '".$nombre."',
-                                '".$IdUsuario."',
+                                '".$idUsuario."',
                                 '".$esAdministrador."',
                                 '".$esAdministradorProse."',
-                                '".$Idioma."'" );
+                                '".$idioma."'" );
 
+         $array = json_decode(json_encode($perfilesProses), true);
+         $perfile_new= array();
+         $datos  = array();
+         $cont = 0;
+         foreach ($array as $value) {
+              $cont = $cont + 1;
+              $perfile_new["ID_Usuario"]  =  $value["ID_Usuario"];
+              $perfile_new["Nombre"]  =  $value["Nombre"];
+              $perfile_new["Perfil_ac"]  =  $value["Perfil prose actual"];
+              $perfile_new["Participa_pr"]  =  $value["Participa en prose"];
+              $perfile_new["A_partir"]  =  $value["A partir de"];
+              $perfile_new["idPerfil"]  =  $value["idPerfil"];
+              $datos[$cont] = (object) $perfile_new;
+         }
+         $perfilesProses = $datos;
+        // llemar select list empresa
+        $idUsuario = '';
+        $esAdministrador = '';
+        $esAdministradorProse = '';
+        $idioma = '';
 
-        return view('perfilesProses.index')
-            ->with('perfilesProses', $perfilesProses);
+        $Empresa = DB::select("EXEC [dbo].[sc_usuariosProse_Empresa]
+                                '".$idUsuario."',
+                                '".$esAdministrador."',
+                                '".$esAdministradorProse."',
+                                '".$idioma."'");
+        //dd($Empresa);
+        $collection = Collection::make($Empresa);
+        
+        $Empresa = $collection->lists('Descripcion','id_empresa');
+        //dd($Empresa);
+          //return view('perfilesProses.index',compact('Empresa'))
+           //  ->with('perfilesProses', $perfilesProses);
+
+// llemar select list perfil
+        $Perfiles = DB::select("EXEC [dbo].[sc_usuariosProse_Perfiles]
+                                '".$idUsuario."',
+                                '".$esAdministrador."',
+                                '".$esAdministradorProse."',
+                                '".$idioma."'"); 
+       // dd($Perfiles);
+        $collection = Collection::make($Perfiles);
+      
+        $Perfil = $collection->lists('descripcion','id_prosePerfil');
+// llemar select list puesto
+
+        $Puesto = DB::select("EXEC [dbo].[sc_usuariosProse_Puesto]
+                                '".$idUsuario."',
+                                '".$esAdministrador."',
+                                '".$esAdministradorProse."',
+                                '".$idioma."'"); 
+       
+        $collection = Collection::make($Puesto);
+      
+        $Puesto = $collection->lists('Descripcion','id_puesto');
+// llemar select list Departamento
+
+ $Departamento = DB::select("EXEC [dbo].[sc_usuariosProse_Departamento]
+                                '".$idUsuario."',
+                                '".$esAdministrador."',
+                                '".$esAdministradorProse."',
+                                '".$idioma."'"); 
+       
+        $collection = Collection::make($Departamento);
+      
+        $Departamento = $collection->lists('Descripcion','id_departamento');
+// llemar select list Area
+        $Area = DB::select("EXEC [dbo].[sc_usuariosProse_Area]
+                                '".$idUsuario."',
+                                '".$esAdministrador."',
+                                '".$esAdministradorProse."',
+                                '".$idioma."'"); 
+       
+        $collection = Collection::make($Area);
+      
+        $Area = $collection->lists('Descripcion','id_area');
+
+        return view('perfilesProses.index', compact('Empresa','Perfil','Puesto', 'Departamento', 'Area'))
+             ->with('perfilesProses', $perfilesProses);
+        
     } 
 
     /**
@@ -85,12 +163,12 @@ class PerfilesProseController extends InfyOmBaseController
 
         $idusuario  = $input['ID_Usuario'];
         $perfil     = $input['Perfil prose actual'];
-        $anno       = '2016';
-        $mes        = '07';
-        $dia        = '13';      
+        $anno       = "2016";
+        $mes        = "07";
+        $dia        = "13";      
         
         $perfilesProses = DB::statement("EXEC [dbo].[sc_usuariosProse_Agregar]
-                                '1',
+                                1,
                                 '".$idusuario."',
                                 '".$perfil."',
                                 '".$anno."',
@@ -162,8 +240,17 @@ class PerfilesProseController extends InfyOmBaseController
                                 '".$Idioma."'" );
 
 
-        return view('perfilesProses.index')
-            ->with('perfilesProses', $perfilesProses);
+      $collection = Collection::make($perfilesProses);
+        
+        $perfil = $collection->first();
+        if (empty($perfilesProses)) {
+            
+            Flash::error('DepartamentosProse not found');
+
+            return redirect(route('perfilesProses.index'));
+        }
+
+        return view('perfilesProses.edit')->with('perfilesProses',  $perfil );
     }
 
     /**
@@ -185,7 +272,7 @@ class PerfilesProseController extends InfyOmBaseController
         $dia        = '13';       
         
         $perfilesProses = DB::statement("EXEC [dbo].[sc_usuariosProse_Agregar]
-                                '1',
+                                1,
                                 '".$idusuario."',
                                 '".$perfil."',
                                 '".$anno."',
@@ -209,7 +296,7 @@ class PerfilesProseController extends InfyOmBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+   public function destroy($id)
     {
          $perfilesProses = DB::statement("EXEC [dbo].[sc_usuariosProse_Eliminar]
                                 '".$id."',
@@ -226,4 +313,5 @@ class PerfilesProseController extends InfyOmBaseController
         Flash::success('perfiles Prose deleted successfully.');
         return redirect(route('perfilesProses.index'));
     }
+    
 }

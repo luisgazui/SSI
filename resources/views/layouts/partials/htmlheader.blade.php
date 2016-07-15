@@ -27,4 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"><!-- Ionicons -->
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap-datetimepicker.min.css') }}">
 </head>
+ 

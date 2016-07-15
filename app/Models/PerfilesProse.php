@@ -83,7 +83,7 @@ class PerfilesProse extends Model
         'Nombre' => 'string',
         'Perfil prose actual' => 'string',
         'Participa en prose' => 'string',
-        'A partir de' => 'string',
+        'A partir de' => 'date',
         'idPerfil' => 'integer'
     ];
 

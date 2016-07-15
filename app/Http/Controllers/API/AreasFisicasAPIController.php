@@ -63,17 +63,17 @@ class AreasFisicasAPIController extends InfyOmBaseController
     public function index(Request $request)
     {
 
-        $IdArea = '';
-        $Descripcion = '';
-        $IdUsuario = '';
-        $Idioma = '';          
-                $areasFisicas = DB::select("EXEC [dbo].[sc_AreasFisicas_Consulta]
-                                '".$IdArea."',
-                                '".$Descripcion."',
-                                '".$IdUsuario."',
-                                '".$Idioma."'");
+   
+$idUsuario = 0;
+$esAdministrador = 0;
+$esAdministradorProse = 0;
+$idioma = 'espanol';
+                $Perfiles = DB::select('EXEC [dbo].[sc_usuariosProse_Perfiles]
+                                ?, ?, ?, ?', 
+                                array("$idUsuario", "$esAdministrador", "$esAdministradorProse", "'$idioma'")); 
+        dd($Perfiles);
 
-        return $this->sendResponse($areasFisicas->toArray(), 'AreasFisicas retrieved successfully');
+        return $this->sendResponse($Perfiles->toArray(), 'AreasFisicas retrieved successfully');
     }
 
     /**

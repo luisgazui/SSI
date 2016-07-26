@@ -16,6 +16,7 @@
                         @include('perfilesProses.fields')
 
                    {!! Form::close() !!}
+                   
                </div>
            </div>
        </div>

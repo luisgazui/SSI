@@ -118,7 +118,7 @@
 <script>   
 $(document).ready(function() {
     var table = $('#perfilesProses-table').DataTable({
-        responsive: true,
+        
         dom: 'Brtip',
         buttons: [
             {
@@ -136,6 +136,15 @@ $(document).ready(function() {
             }
         
                 ]
+    } );
+} );    
+</script>   
+
+<script>   
+$(document).ready(function() {
+    var table = $('#table_edit').DataTable({
+    
+         
     } );
 } );    
 </script>   

@@ -25,5 +25,5 @@
                 </div>
           <div class="orm-group col-xs-3">
     {!! Form::submit('Buscar', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('perfilesProses.index') !!}" class="btn btn-default">Cancel</a>
+    <a href="{!! route('perfilesProses.index') !!}" class="btn btn-default">Cancelar</a>
     </div>

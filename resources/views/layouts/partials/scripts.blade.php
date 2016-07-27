@@ -25,6 +25,23 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src=" https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+   
+    <script src="{{ asset('/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('/js/defaults-es_CL.js') }}"></script>
+    <script src="{{ asset('js/moment.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('/js/es.js') }}"></script> 
+    <script src="{{ asset('/js/bootstrap-table-expandable.js') }}"></script>
+
+   <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                 format: 'DD-MM-YYYY',
+                 locale:'es'
+                       });
+                });
+        </script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -98,11 +115,11 @@
     });
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#perfilesProses-table').dataTable( {
-        
-        dom: 'Bfrtip',
+<script>   
+$(document).ready(function() {
+    var table = $('#perfilesProses-table').DataTable({
+        responsive: true,
+        dom: 'Brtip',
         buttons: [
             {
                 extend:'csv',
@@ -118,18 +135,7 @@
                 title: 'Perfiles_Prose'
             }
         
-                ],
-        "columnDefs": [{
-            "targets": 'nosort',
-                        "orderable" : false,
-                        "searchable": false,
-                        "printable" : false,
-                        "exportable": false
-        
-                       }]
-        
-       
-        
-       });
-    });
-</script>       
+                ]
+    } );
+} );    
+</script>   

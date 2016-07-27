@@ -29,7 +29,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-blue sidebar-mini">
+<body class="skin-blue sidebar-collapse">
 <div class="wrapper">
 
     @include('layouts.partials.mainheader')
@@ -50,7 +50,7 @@ desired effect
 
     @include('layouts.partials.controlsidebar')
 
-    @include('layouts.partials.footer')
+   
 
 </div><!-- ./wrapper -->
 

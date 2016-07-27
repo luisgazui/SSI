@@ -1194,16 +1194,16 @@
         },
         {
             "name": "laracasts/flash",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laracasts/flash.git",
-                "reference": "4df7200127a71511bdf116bc8b7a2586612c7a35"
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/flash/zipball/4df7200127a71511bdf116bc8b7a2586612c7a35",
-                "reference": "4df7200127a71511bdf116bc8b7a2586612c7a35",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d",
                 "shasum": ""
             },
             "require": {
@@ -1233,7 +1233,7 @@
                 }
             ],
             "description": "Easy flash notifications",
-            "time": "2016-03-14 15:55:34"
+            "time": "2016-07-11 20:46:02"
         },
         {
             "name": "laravel/framework",
@@ -3241,16 +3241,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v6.15.0",
+            "version": "v6.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "c1bbfc01434f1ebe808f75a339a6ded5557d3664"
+                "reference": "514c671b3de1a0e0e59dc9e1e7f987eb3d67fef3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/c1bbfc01434f1ebe808f75a339a6ded5557d3664",
-                "reference": "c1bbfc01434f1ebe808f75a339a6ded5557d3664",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/514c671b3de1a0e0e59dc9e1e7f987eb3d67fef3",
+                "reference": "514c671b3de1a0e0e59dc9e1e7f987eb3d67fef3",
                 "shasum": ""
             },
             "require": {
@@ -3297,7 +3297,7 @@
                 "laravel4",
                 "laravel5"
             ],
-            "time": "2016-07-05 01:37:34"
+            "time": "2016-07-13 05:35:29"
         },
         {
             "name": "zircote/swagger-php",

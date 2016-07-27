@@ -83,7 +83,7 @@ class PerfilesProse extends Model
         'Nombre' => 'string',
         'Perfil prose actual' => 'string',
         'Participa en prose' => 'string',
-        'A partir de' => 'string',
+        'A partir de' => 'date',
         'idPerfil' => 'integer'
     ];
 
@@ -93,10 +93,10 @@ class PerfilesProse extends Model
      * @var array
      */
     public static $rules = [
-        'Nombre'              => 'required',
-        'Perfil prose actual' => 'required',
-        'Participa en prose'  => 'required',
-        'A partir de'         => 'required',
-        'idPerfil'            => 'required'
+        'Nombre'              ,
+        'Perfil prose actual' ,
+        'Participa en prose'  ,
+        'A partir de'        ,
+        'idPerfil'           
     ];
 }

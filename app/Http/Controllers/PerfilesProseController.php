@@ -79,6 +79,7 @@ class PerfilesProseController extends InfyOmBaseController
               $datos[$cont] = (object) $perfile_new;
          }
          $perfilesProses = $datos;
+
         // llemar select list empresa
         $idUsuario = '';
         $esAdministrador = '';
@@ -222,15 +223,38 @@ class PerfilesProseController extends InfyOmBaseController
         $IdUsuario             = $id;    
         $Idioma                = '';                   
  
-        $perfilesProses = DB::select("EXEC [dbo].[sc_usuariosProse_Busca_grid]
+      $perfilesProses = DB::select("EXEC [dbo].[sc_usuariosProse_Busca_grid]
                                '".$IdUsuario."',
                                '".$Idioma."'" );
 
        
       $collection = Collection::make($perfilesProses);
-        
-        $perfil = $collection->first();
-       // dd($perfil);
+      $perfil = $collection->first();
+        //dd($perfil);
+       
+        // llenado de la tabla
+        $tabla = DB::select("EXEC [dbo].[sc_usuariosProse_Busca_grid]
+                               '".$IdUsuario."',
+                               '".$Idioma."'" );
+
+         $array = json_decode(json_encode($tabla), true);
+         $perfile_new= array();
+         $datos  = array();
+         $cont = 0;
+         foreach ($array as $value) {
+              $cont = $cont + 1;
+              $perfile_new["ID_Usuario"]  =  $value["ID_Usuario"];
+              $perfile_new["Nombre"]  =  $value["Nombre"];
+              $perfile_new["Perfil_ac"]  =  $value["Perfil prose"];
+              $perfile_new["A_partir"]  =  $value["A partir de"];
+              $perfile_new["idPerfil"]  =  $value["perfilProse"];
+              $datos[$cont] = (object) $perfile_new;
+         }
+         $p = $datos;
+         $collection = Collection::make($p);
+         $per= $collection->all();
+        //var_dump($collection->all());
+
         $idUsuario = '';
         $esAdministrador = '';
         $esAdministradorProse = '';
@@ -253,7 +277,7 @@ class PerfilesProseController extends InfyOmBaseController
             return redirect(route('perfilesProses.index'));
         }
 
-        return view('perfilesProses.edit', compact('Perfil'))->with('perfilesProses',  $perfil);
+        return view('perfilesProses.edit', compact('Perfil', 'per'))->with('perfilesProses',  $perfil);
     }
 
     /**

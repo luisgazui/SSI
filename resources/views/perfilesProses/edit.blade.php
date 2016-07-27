@@ -16,7 +16,9 @@
                         @include('perfilesProses.fields')
 
                    {!! Form::close() !!}
-                   
+                   <div>
+                   @include('perfilesProses.table_edit')
+                   </div>
                </div>
            </div>
        </div>

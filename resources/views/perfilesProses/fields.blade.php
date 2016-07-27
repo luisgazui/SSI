@@ -13,27 +13,20 @@
 <!-- Perfil Prose Actual Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Perfil prose actual', 'Perfil Prose Actual:') !!}
-    {!! Form::text('Perfil prose actual', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Participa En Prose Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Participa en prose', 'Participa En Prose:') !!}
-    {!! Form::text('Participa en prose', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Perfil', $Perfil, null,['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"] ) !!}
 </div>
 
 <!-- A Partir De Field -->
-<class='input-group date' id='datetimepicker1'>
-    {!! Form::label('A partir de', 'A Partir De:') !!}
-    {!! Form::date('A partir de', null, ['class' => 'form-control', 'id' => 'datetimepicker1']) !!}
-
-</div>
-
-<!-- Idperfil Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('idPerfil', 'Idperfil:') !!}
-    {!! Form::number('idPerfil', null, ['class' => 'form-control']) !!}
-</div>
+    {!! Form::label('A partir de', 'A Partir De:') !!}
+   <div class='input-group date' id='datetimepicker1'>
+       <input name="fech" type='text' class="form-control"  />
+            <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+   </div>
+  
+ </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

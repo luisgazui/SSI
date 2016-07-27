@@ -52,5 +52,5 @@ Route::get('logout', 'Auth\AuthController@logout');
 
 Route::resource('areasFisicas', 'AreasFisicasController');
 Route::resource('departamentosProses', 'DepartamentosProseController');
-
+Route::post('perfilesBusca',  array('as' => 'perfilesBusca', 'uses' => 'PerfilesProseController@index'));
 Route::resource('perfilesProses', 'PerfilesProseController');

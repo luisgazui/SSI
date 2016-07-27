@@ -1,13 +1,13 @@
 <!-- Id Usuario Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ID_Usuario', 'Id Usuario:') !!}
-    {!! Form::number('ID_Usuario', null, ['class' => 'form-control']) !!}
+    {!! Form::number('ID_Usuario', null, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 </div>
 
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Nombre', 'Nombre:') !!}
-    {!! Form::text('Nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('Nombre', null, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 </div>
 
 <!-- Perfil Prose Actual Field -->
@@ -30,6 +30,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('perfilesProses.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Gurardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('perfilesProses.index') !!}" class="btn btn-default">Cancelar</a>
 </div>

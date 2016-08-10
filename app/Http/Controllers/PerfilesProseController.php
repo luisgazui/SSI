@@ -61,7 +61,7 @@ class PerfilesProseController extends InfyOmBaseController
                                 '".$idPerfil."', 
                                 '".$nombre."',
                                 '".$idUsuario."',
-                                '".$esAdministrador."',
+                               '".$esAdministrador."',
                                 '".$esAdministradorProse."',
                                 '".$idioma."'" );
          $array = json_decode(json_encode($perfilesProses), true);
@@ -70,15 +70,21 @@ class PerfilesProseController extends InfyOmBaseController
          $cont = 0;
          foreach ($array as $value) {
               $cont = $cont + 1;
+
               $perfile_new["ID_Usuario"]  =  $value["ID_Usuario"];
-              $perfile_new["Nombre"]  =  $value["Nombre"];
-              $perfile_new["Perfil_ac"]  =  $value["Perfil prose actual"];
-              $perfile_new["Participa_pr"]  =  $value["Participa en prose"];
-              $perfile_new["A_partir"]  =  $value["A partir de"];
-              $perfile_new["idPerfil"]  =  $value["idPerfil"];
+              $perfile_new["Nombre"]      =  $value["Nombre"];
+              $perfile_new["Perfil_ac"]   =  $value["Perfil prose actual"];
+              $perfile_new["Participa_pr"]=  $value["Participa en prose"];
+              $perfile_new["A_partir"]    =  $value["A partir de"];
+              $perfile_new["idPerfil"]    =  $value["idPerfil"];
               $datos[$cont] = (object) $perfile_new;
+        
          }
-         $perfilesProses = $datos;
+               
+
+         $collection = Collect($datos);
+         $unique = $collection->unique('ID_Usuario'); 
+         $perfilesProses=$unique->values()->all();
 
         // llemar select list empresa
         $idUsuario = '';
@@ -96,7 +102,7 @@ class PerfilesProseController extends InfyOmBaseController
         
         $Empresa = $collection->lists('Descripcion','id_empresa');
         
-// llemar select list perfil
+        // llemar select list perfil
         $Perfiles = DB::select("EXEC [dbo].[sc_usuariosProse_Perfiles]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
@@ -106,7 +112,7 @@ class PerfilesProseController extends InfyOmBaseController
         $collection = Collection::make($Perfiles);
       
         $Perfil = $collection->lists('descripcion','id_prosePerfil');
-// llemar select list puesto
+        // llemar select list puesto
 
         $Puesto = DB::select("EXEC [dbo].[sc_usuariosProse_Puesto]
                                 '".$idUsuario."',
@@ -117,9 +123,9 @@ class PerfilesProseController extends InfyOmBaseController
         $collection = Collection::make($Puesto);
       
         $Puesto = $collection->lists('Descripcion','id_puesto');
-// llemar select list Departamento
+        // llemar select list Departamento
 
- $Departamento = DB::select("EXEC [dbo].[sc_usuariosProse_Departamento]
+        $Departamento = DB::select("EXEC [dbo].[sc_usuariosProse_Departamento]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
                                 '".$esAdministradorProse."',
@@ -128,7 +134,8 @@ class PerfilesProseController extends InfyOmBaseController
         $collection = Collection::make($Departamento);
       
         $Departamento = $collection->lists('Descripcion','id_departamento');
-// llemar select list Area
+        
+        // llemar select list Area
         $Area = DB::select("EXEC [dbo].[sc_usuariosProse_Area]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',

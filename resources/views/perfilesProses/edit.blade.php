@@ -2,11 +2,11 @@
 
 @section('content')
     <section class="content-header">
-        <h1>
-            Perfiles Prose
-        </h1>
+      
+        <h1 class="pull-left">Perfiles Proses</h1>
    </section>
    <div class="content">
+        <div class="clearfix"></div>
        @include('adminlte-templates::common.errors')
        <div class="box box-primary">
            <div class="box-body">
@@ -16,11 +16,14 @@
                         @include('perfilesProses.fields')
 
                    {!! Form::close() !!}
-                   <div>
+                   
+               </div>
+               <div>
                    @include('perfilesProses.table_edit')
                    </div>
-               </div>
            </div>
+
        </div>
+
    </div>
 @endsection

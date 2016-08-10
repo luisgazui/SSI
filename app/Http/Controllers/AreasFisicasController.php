@@ -130,12 +130,13 @@ class AreasFisicasController extends InfyOmBaseController
      */
     public function edit($id)
     {
+         
         $IdArea = $id;
         $Descripcion = '';
         $IdUsuario = '';
         $Idioma = '';                       
  
-         
+        
         
         $areasFisicas = DB::select("EXEC [dbo].[sc_AreasFisicas_Consulta]
                                 '".$IdArea."',
@@ -203,16 +204,24 @@ class AreasFisicasController extends InfyOmBaseController
     public function destroy($id)
     {
         
-
-        $areasFisicas = DB::statement("EXEC [dbo].[sc_AreasFisicas_Elimina]
+        try {
+           $areasFisicas = DB::statement("EXEC [dbo].[sc_AreasFisicas_Elimina]
                                 '".$id."'");
 
-        if (empty($areasFisicas)) {
-            Flash::error('AreasFisicas not found');
+            if (empty($areasFisicas)) {
+                Flash::error('AreasFisicas not found');
+                return redirect(route('areasFisicas.index'));
+            }
+
+            Flash::success('AreasFisicas deleted successfully.');
+            return redirect(route('areasFisicas.index'));
+           
+        }
+        catch(\Exception $e)
+        {
+            Flash::error('El registro no se puede eliminar ya que esta siendo usado');
             return redirect(route('areasFisicas.index'));
         }
 
-        Flash::success('AreasFisicas deleted successfully.');
-        return redirect(route('areasFisicas.index'));
     }
 }

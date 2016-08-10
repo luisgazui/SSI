@@ -142,9 +142,7 @@ $(document).ready(function() {
 
 <script>   
 $(document).ready(function() {
-    var table = $('#table_edit').DataTable({
-    
-         
-    } );
+    var table = $('#table_edit').DataTable();
 } );    
 </script>   
+

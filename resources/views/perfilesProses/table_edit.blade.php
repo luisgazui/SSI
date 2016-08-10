@@ -1,8 +1,5 @@
-<div style="
-    margin-top: 12px;
-    padding-top: 132px;
-">
-<table  class="display" id="table_edit" cellspacing="0" width="100%">
+
+<table  class="display" id="table_edit">
     <thead>
         <th>Perfil Actual</th>
         <th>A partir de</th>
@@ -21,4 +18,4 @@
     @endforeach
     </tbody>
 </table>
-</div>
+</div> 

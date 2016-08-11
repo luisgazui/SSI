@@ -33,6 +33,8 @@
     <script src="{{ asset('/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('/js/es.js') }}"></script> 
     <script src="{{ asset('/js/bootstrap-table-expandable.js') }}"></script>
+    <script src="{{ asset('/js/jquery.bootstrap-touchspin.js') }}"></script>
+    <script src="{{ asset('/js/jquery.bootstrap-touchspin.min.js') }}"></script>
 
    <script type="text/javascript">
             $(function () {
@@ -43,11 +45,40 @@
                 });
         </script>
 
+        <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker9').datetimepicker({
+                viewMode: 'years',
+                format: 'MM-YYYY',
+                locale:'es'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepickerD').datetimepicker({
+                viewMode: 'years',
+                format: 'MM-YYYY',
+                locale:'es'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepickerA').datetimepicker({
+                viewMode: 'years',
+                format: 'MM-YYYY',
+                locale:'es'
+            });
+        });
+    </script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#areasFisicas-table').dataTable( {
             dom: 'Bfrtip',
-        buttons: [
+
+     buttons: [
             {
                 extend:'csv',
                 title:'Areas_Fisicas'
@@ -69,7 +100,32 @@
                         "searchable": false,
                         "printable" : false,
                         "exportable" : false
-        }]
+        }],
+         language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "NingÃºn dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
        });
     });
 </script>
@@ -82,7 +138,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#departamentosProses-table').dataTable( {
-        
+         "scrollX": true,
         dom: 'Bfrtip',
         buttons: [
             {
@@ -107,7 +163,32 @@
                         "printable" : false,
                         "exportable" : false
         
-                       }]
+                       }],
+                       language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "NingÃºn dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
         
        
         
@@ -118,8 +199,9 @@
 <script>   
 $(document).ready(function() {
     var table = $('#perfilesProses-table').DataTable({
-        
+       
         dom: 'Brtip',
+       
         buttons: [
             {
                 extend:'csv',
@@ -135,14 +217,202 @@ $(document).ready(function() {
                 title: 'Perfiles_Prose'
             }
         
-                ]
+                ],
+                language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "NingÃºn dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
     } );
 } );    
 </script>   
 
 <script>   
 $(document).ready(function() {
-    var table = $('#table_edit').DataTable();
+    var table = $('#table_edit').DataTable({
+        language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "NingÃºn dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    });
 } );    
-</script>   
+</script> 
+<script>   
+$(document).ready(function() {
+    var table = $('#metas-table').DataTable({
+       "scrollX": true,
+        dom: 'Brtip',
+       
+        buttons: [
+            {
+                extend:'csv',
+                title:'Metas'
+            }, 
+            {
+                extend:'excel',
+                title: 'Metas'
+                 
+            }, 
+            {
+                extend:'pdf',
+                title: 'Metas'
+            }
+        
+                ],
+                language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    } );
+} );    
+</script> 
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#otros-table').dataTable( {
+            dom: 'Bfrtip',
+
+     buttons: [
+            {
+                extend:'csv',
+                title:'Areas_Fisicas'
+            }, 
+            {
+                extend:'excel',
+                title: 'Areas_Fisicas'
+                 
+            }, 
+            {
+                extend:'pdf',
+                title: 'Areas_Fisicas'
+            }
+        
+                ],
+        "columnDefs": [{
+            "targets": 'nosort',
+                        "orderable" : false,
+                        "searchable": false,
+                        "printable" : false,
+                        "exportable" : false
+        }],
+         language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "NingÃºn dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+       });
+    });
+</script> 
+
+<script>
+ $("input[name='Inspecciones']").TouchSpin({
+    min: 0,
+    max: 50,
+ });
+</script>
+<script>
+ $("input[name='Observaciones']").TouchSpin({
+    min: 0,
+    max: 50,
+ });
+</script>
+<script>
+ $("input[name='Interaciones']").TouchSpin({
+    min: 0,
+    max: 50,
+ });
+</script>
+<script>
+ $("input[name='Reuniones']").TouchSpin({
+    min: 0,
+    max: 50,
+ });
+</script>
+<script>
+ $("input[name='Charlas']").TouchSpin({
+    min: 0,
+    max: 50,
+ });
+</script>

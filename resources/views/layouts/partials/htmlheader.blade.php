@@ -32,5 +32,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/jquery.bootstrap-touchspin.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/jquery.bootstrap-touchspin.css') }}">
+
 </head>
  

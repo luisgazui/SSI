@@ -360,7 +360,7 @@ class PerfilesProseController extends InfyOmBaseController
     public function buscar(Request $request)
     {
             $input = $request->all();
-            dd($input);
+            //dd($input);
           return redirect(route('perfilesProses.index'));
     }
     

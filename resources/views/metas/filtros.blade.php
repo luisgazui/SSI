@@ -18,7 +18,7 @@
                 <div class="form-group col-sm-3">
                     {!! Form::label('Periodo', 'Periodo:') !!}
                     <div class='input-group date' id='datetimepicker9'>
-                    <input name="fecha" type='text' class="form-control" />
+                    <input name="fec" id="fec" type='text' class="form-control" />
                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar">
                     </span>

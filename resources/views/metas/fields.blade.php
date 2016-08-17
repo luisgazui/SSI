@@ -11,7 +11,7 @@
   <div class="form-group col-sm-3">
                     {!! Form::label('Desde', 'Desde:') !!}
                     <div class='input-group date' id='datetimepickerD'>
-                    <input name="des" type='text' class="form-control" />
+                    <input name="des" id="des" type='text' class="form-control" />
                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar">
                     </span>
@@ -22,7 +22,7 @@
             <div class="form-group col-sm-3">
                     {!! Form::label('Hasta', 'Hasta:') !!}
                     <div class='input-group date' id='datetimepickerA'>
-                    <input name="al" type='text' class="form-control" />
+                    <input name="al" id="al" type='text' class="form-control" />
                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar">
                     </span>

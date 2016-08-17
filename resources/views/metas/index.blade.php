@@ -20,8 +20,18 @@
                     @include('metas.filtros')
 
              {!! Form::close() !!}
-            
+            @foreach($metas as $metas)
+
+            @if($metas['Reporte']== '1')
+                
+                    @include('metas.table2')
+                
+             @elseif ($metas['Reporte']== 'METAS POR PERSONA')
+                
                     @include('metas.table')
+                
+              @endif
+            @endforeach
           
             </div>
         </div>

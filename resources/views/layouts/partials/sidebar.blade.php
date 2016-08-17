@@ -28,6 +28,8 @@
                     <li><a href="/perfilesProses" class="ion-person"> Perfiles PROSE</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="/metas"> <span>METAS</span> <i class="fa fa-angle-left pull-right"></i></a>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

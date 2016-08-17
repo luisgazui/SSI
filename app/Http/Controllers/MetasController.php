@@ -33,10 +33,11 @@ class MetasController extends InfyOmBaseController
     public function index(Request $request)
     {
         $input = $request->all();
-        dd($input);
-        $date = strtotime($input['fecha']);
-        $anno= date("Y", $date);
-        $mes1= date("m", $date);
+       // $fech = $input['fec'];
+        //dd($input);
+       // $date = strtotime($fech);
+       // $anno= date("Y", $date);
+       // $mes1= date("m", $date);
          if (isset($input['Empresa'])) { $idEmpresa = $input['Empresa']; }
         else { $idEmpresa = ''; } 
         if (isset($input['Departamento'])) { $idDepartamento = $input['Departamento']; }
@@ -55,7 +56,7 @@ class MetasController extends InfyOmBaseController
         $idSupervisor = '';
         $NumEmpleado = '';
                
-        $metas= DB::select("EXEC [dbo].[sc_prose_MetasBusca02]
+        $metas= DB::select("EXEC [dbo].[sc_prose_MetasBusca01]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
                                 '".$esAdministradorProse."' ,
@@ -137,7 +138,7 @@ class MetasController extends InfyOmBaseController
                                 '".$idDepartamento."'"); 
        
         $collection = Collection::make($Supervisor);
-      
+   
         $Supervisor = $collection->lists('nombre','id_usuario');
         return view('metas.create', compact('Supervisor'));
     }
@@ -159,7 +160,7 @@ class MetasController extends InfyOmBaseController
         $esAdministrador = '';
         $esAdministradorProse = '';
         $idioma = '';
-        $idSupervisor = '';
+        $idSupervisor = $input['Supervisor'];
         $AyoInicial = date("Y", $date1);
         $MesInicial = date("m", $date1);
         $Ayofinal= date("Y", $date2);
@@ -170,7 +171,7 @@ class MetasController extends InfyOmBaseController
         $Charlas=  $input['Charlas'];
         $Interacciones=  $input['Interaciones'];
        
-        
+       // dd($input);
         $metas= DB::statement("EXEC [dbo].[sc_prose_MetasAsignacionesGuarda]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
@@ -187,7 +188,7 @@ class MetasController extends InfyOmBaseController
                                 '".$Charlas."',
                                 '".$Interacciones."'");
 
-       
+      // dd($metas);
         if ($metas) {
             Flash::success('Registro Guardado Corectamente.');
         }
@@ -298,10 +299,4 @@ class MetasController extends InfyOmBaseController
            
         
     }
-     public function buscar(Request $request)
-    {
-            $input = $request->all();
-            //dd($input);
-          return redirect(route('metas.index'));
-    }
-}
+     }

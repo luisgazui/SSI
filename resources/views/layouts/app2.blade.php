@@ -1,7 +1,3 @@
-php artisan infyom:api_scaffold $MODEL_NAME
-
-http://labs.infyom.com/laravelgenerator/docs/fields-input-guide
-
 <!DOCTYPE html>
 <html>
 <head>

@@ -6,7 +6,7 @@
     <thead>
         <th>Id Usuario</th>
         <th>Nombre</th>
-        <th class="nosort">Action</th>
+        <th class="nosort">Acciones</th>
     </thead>
     <tbody>
 

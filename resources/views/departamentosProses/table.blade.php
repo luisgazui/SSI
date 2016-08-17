@@ -4,7 +4,7 @@
         <th>Departamento</th>
         <th>Departamento prose</th>
         <th>Habilitado</th>
-        <th class="nosort">Action</th>
+        <th class="nosort">Acciones</th>
     </thead>
     <tbody>
     @foreach($departamentosProses as $departamentosProses)

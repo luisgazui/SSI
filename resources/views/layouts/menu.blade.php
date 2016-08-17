@@ -10,3 +10,7 @@
     <a href="{!! route('perfilesProses.index') !!}"><i class="fa fa-edit"></i><span>PerfilesProses</span></a>
 </li>
 
+<li class="{{ Request::is('metas*') ? 'active' : '' }}">
+    <a href="{!! route('metas.index') !!}"><i class="fa fa-edit"></i><span>Metas</span></a>
+</li>
+

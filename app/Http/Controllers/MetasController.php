@@ -33,19 +33,24 @@ class MetasController extends InfyOmBaseController
     public function index(Request $request)
     {
         $input = $request->all();
-       // $fech = $input['fec'];
+      
         //dd($input);
-       // $date = strtotime($fech);
-       // $anno= date("Y", $date);
-       // $mes1= date("m", $date);
+       
          if (isset($input['Empresa'])) { $idEmpresa = $input['Empresa']; }
         else { $idEmpresa = ''; } 
         if (isset($input['Departamento'])) { $idDepartamento = $input['Departamento']; }
         else { $idDepartamento = ''; }  
         if (isset($input['Nombre'])) { $Nombre = $input['Nombre']; }
         else { $Nombre = ''; }  
-        if (isset($input['fecha'])) {$ayo = $anno; $mes= $mes1; }
-        else { $ayo = ''; $mes= ''; }  
+        if(isset($input ['fecha'])){
+        $date = strtotime($input['fecha']);
+        $anno= date("Y", $date);
+        $mes1= date("m", $date);
+        }
+        if (isset($anno)) {$ayo = $anno;}
+        else { $ayo = '';} 
+        if (isset($mes1)) {$mes = $mes1;}
+        else { $mes = '';} 
         if (isset($input['Reporte'])) { $idReporte = $input['Reporte']; }
         else { $idReporte = ''; }
         $idUsuario = '';
@@ -56,7 +61,7 @@ class MetasController extends InfyOmBaseController
         $idSupervisor = '';
         $NumEmpleado = '';
                
-        $metas= DB::select("EXEC [dbo].[sc_prose_MetasBusca01]
+        $metas= DB::select("EXEC [dbo].[sc_prose_MetasBusca]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
                                 '".$esAdministradorProse."' ,
@@ -70,6 +75,8 @@ class MetasController extends InfyOmBaseController
                                 '".$ayo."' ,
                                 '".$mes."' ,
                                 '".$idReporte."'");
+ 
+    
     // llemar select list empresa
         $idUsuario = '';
         $esAdministrador = '';
@@ -109,7 +116,7 @@ class MetasController extends InfyOmBaseController
       
         $Reporte = $collection->lists('descripcion','id_Reporte');
 
-        return view('metas.index', compact('Empresa','Departamento', 'Reporte'))->with('metas', $metas);
+        return view('metas.index', compact('Empresa','Departamento', 'Reporte',  'idReporte'))->with('metas', $metas);
     }
 
     /**
@@ -298,5 +305,11 @@ class MetasController extends InfyOmBaseController
             return redirect(route('metas.index'));
            
         
+    }
+      public function buscar(Request $request)
+    {
+            $input = $request->all();
+        
+          return redirect(route('metas.index'));
     }
      }

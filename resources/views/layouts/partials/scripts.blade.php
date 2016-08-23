@@ -49,7 +49,7 @@
         $(function () {
             $('#datetimepicker9').datetimepicker({
                 viewMode: 'years',
-                format: 'MM-YYYY',
+                format: 'M-Y',
                 locale:'es'
             });
         });
@@ -58,7 +58,7 @@
         $(function () {
             $('#datetimepickerD').datetimepicker({
                 viewMode: 'years',
-                format: 'MM-YYYY',
+                format: 'MM-Y',
                 locale:'es'
             });
         });
@@ -67,7 +67,7 @@
         $(function () {
             $('#datetimepickerA').datetimepicker({
                 viewMode: 'years',
-                format: 'MM-YYYY',
+                format: 'M-Y',
                 locale:'es'
             });
         });

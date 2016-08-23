@@ -24,13 +24,15 @@
             <td>{!! $metas->Observaciones !!}</td>
             <td>{!! $metas->Rreuniones !!}</td>
             <td>{!! $metas->Charlas !!}</td>
+            <td>{!! $metas->Interacciones !!}</td>
             <td>{!! $metas->Empresa !!}</td>
             <td>{!! $metas->Departamento !!}</td>
            
             <td>
-               
+               {!! Form::open(['route' => ['metas.destroy', $metas->idUsuario], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                
+                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Esta Operacion no se puede deshacer. Esta seguro?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

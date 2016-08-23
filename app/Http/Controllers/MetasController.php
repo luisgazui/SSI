@@ -163,22 +163,22 @@ class MetasController extends InfyOmBaseController
          $input = $request->all();
          $date1 = strtotime($input['des']);
          $date2 = strtotime($input['al']);
-        $idUsuario = '';
+        $idUsuario = '1';
         $esAdministrador = '';
         $esAdministradorProse = '';
         $idioma = '';
         $idSupervisor = $input['Supervisor'];
         $AyoInicial = date("Y", $date1);
-        $MesInicial = date("m", $date1);
+        $MesInicial = date("n", $date1);
         $Ayofinal= date("Y", $date2);
-        $MesFinal= date("m", $date2);
+        $MesFinal= date("n", $date2);
         $Inspecciones= $input['Inspecciones'];
         $Observaciones= $input['Observaciones'];
         $Reuniones= $input['Reuniones'];
         $Charlas=  $input['Charlas'];
         $Interacciones=  $input['Interaciones'];
        
-       // dd($input);
+        //dd($AyoInicial);
         $metas= DB::statement("EXEC [dbo].[sc_prose_MetasAsignacionesGuarda]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',

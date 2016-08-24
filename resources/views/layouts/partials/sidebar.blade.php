@@ -23,13 +23,13 @@
             <li class="treeview">
                  <a href="#"> <span>CATALOGO</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
-                       <li><a href="/areasFisicas" class="ion-android-compass"> Areas</a></li>
-                       <li><a href="/departamentosProses" class="ion-pie-graph"> Departamentos PROSE</a></li>
-                       <li><a href="/perfilesProses" class="ion-person"> Perfiles PROSE</a></li>
+                       <li><a href="areasFisicas.index" class="ion-android-compass"> Areas</a></li>
+                       <li><a href="departamentosProses.index" class="ion-pie-graph"> Departamentos PROSE</a></li>
+                       <li><a href="perfilesProses.index" class="ion-person"> Perfiles PROSE</a></li>
                    </ul>
              </li>
             <li class="treeview">
-                  <a href="/metas"> <span>METAS</span></a>
+                  <a href="metas"> <span>METAS</span></a>
             </li>
             <li class="treeview">
                   <a href="#"> <span>PARAMEDICO</span></a>

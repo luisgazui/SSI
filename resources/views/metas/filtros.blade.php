@@ -18,13 +18,15 @@
                 <div class="form-group col-sm-3">
                     {!! Form::label('Periodo', 'Periodo:') !!}
                     <div class='input-group date' id='datetimepicker9'>
-                        <input name="fecha" type='text' class="form-control" />
+                        <input name="fecha" type='text' class="form-control" value ='<?php echo date("n-Y"); ?>' />
                         <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
                 </div>
            <br>
+           <br>
+           <br> 
            <br>
            <br>     
           <div class="form-group col-xs-3">

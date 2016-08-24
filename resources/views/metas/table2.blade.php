@@ -2,7 +2,7 @@
     margin-top: 12px;
     padding-top: 132px;
 ">
-<table class="table table-responsive" id="otros-table">
+<table id="otros-table" class="display nowrap" cellspacing="0" width="100%">
     <thead>
         <th>IdUsuario</th>
         <th>Usuario</th>

@@ -20,7 +20,7 @@
                     @include('metas.filtros')
 
              {!! Form::close() !!}
-             @if($idReporte === '1' or $idReporte === '')
+             @if($idReporte === '1' or $idReporte === ' ')
                         
                @include('metas.table2')
 
@@ -32,9 +32,9 @@
                 
                @include('metas.table')
 
-            @else
+             @elseif($idReporte === '5')
 
-                 @include('metas.table4')
+               @include('metas.table4')
 
             @endif
             </div>

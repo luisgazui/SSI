@@ -43,13 +43,11 @@ class MetasController extends InfyOmBaseController
         if (isset($input['Nombre'])) { $Nombre = $input['Nombre']; }
         else { $Nombre = ''; }  
         if(isset($input ['fecha'])){
-        $date = strtotime($input['fecha']);
-        $anno= date("Y", $date);
-        $mes1= date("m", $date);
-        }
-        if (isset($anno)) {$ayo = $anno;}
+        $date = explode("-", $input['fecha']);
+         }
+        if (isset($input['fecha'])) {$ayo = $date[1];}
         else { $ayo = '';} 
-        if (isset($mes1)) {$mes = $mes1;}
+        if (isset($input['fecha'])) {$mes = $date[0];}
         else { $mes = '';} 
         if (isset($input['Reporte'])) { $idReporte = $input['Reporte']; }
         else { $idReporte = ''; }
@@ -60,7 +58,7 @@ class MetasController extends InfyOmBaseController
         $idArea = '';
         $idSupervisor = '';
         $NumEmpleado = '';
-               
+         //  dd($date);    
         $metas= DB::select("EXEC [dbo].[sc_prose_MetasBusca]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
@@ -161,24 +159,24 @@ class MetasController extends InfyOmBaseController
 
     {
          $input = $request->all();
-         $date1 = strtotime($input['des']);
-         $date2 = strtotime($input['al']);
+         $date1= explode("-", $input['des']);
+         $date2 = explode("-", $input['al']);
         $idUsuario = '1';
         $esAdministrador = '';
         $esAdministradorProse = '';
         $idioma = '';
         $idSupervisor = $input['Supervisor'];
-        $AyoInicial = date("Y", $date1);
-        $MesInicial = date("n", $date1);
-        $Ayofinal= date("Y", $date2);
-        $MesFinal= date("n", $date2);
+        $AyoInicial = $date1[1];
+        $MesInicial = $date1[0];
+        $Ayofinal=  $date2[1];
+        $MesFinal=  $date2[0];
         $Inspecciones= $input['Inspecciones'];
         $Observaciones= $input['Observaciones'];
         $Reuniones= $input['Reuniones'];
         $Charlas=  $input['Charlas'];
         $Interacciones=  $input['Interaciones'];
        
-        //dd($AyoInicial);
+       // dd($date1[0]);
         $metas= DB::statement("EXEC [dbo].[sc_prose_MetasAsignacionesGuarda]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
@@ -283,11 +281,11 @@ class MetasController extends InfyOmBaseController
     public function destroy($id)
     {
        $id_usuario =$id;
-       $ayoInicial ='';
-       $mesInicial ='';
-       $ayoFinal ='';
-       $mesFinal ='';
-        
+       $ayoInicial = date("Y");
+       $mesInicial =date("n");
+       $ayoFinal =date("Y");
+       $mesFinal =date("n");
+       
            $metas = DB::statement("EXEC [dbo].[sc_prose_MetasAsignacionesElimina]
                                 '".$id_usuario."',
                                 '".$ayoInicial."',

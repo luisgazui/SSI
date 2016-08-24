@@ -2,7 +2,7 @@
     margin-top: 12px;
     padding-top: 132px;
 ">
-<table class="table table-responsive" id="metas-table">
+<table id="metas-table" class="display nowrap" cellspacing="0" width="100%">
     <thead>
         <th>Nombre</th>
         <th>Interacciones</th>
@@ -11,7 +11,7 @@
         <th>Charlas</th>
         <th>Reuniones</th>
         <th>Cumplmiento</th>
-        <th>Acciones</th>
+        
     </thead>
     <tbody>
     @foreach($metas as $metas)
@@ -24,13 +24,7 @@
             <td>{!! $metas->Reuniones !!}</td>
             <td>{!! $metas->Cumplimiento !!}</td>
             
-            <td>
-               
-                <div class='btn-group'>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                </div>
-                {!! Form::close() !!}
-            </td>
+            
         </tr>
     @endforeach
     </tbody>

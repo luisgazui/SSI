@@ -389,7 +389,8 @@ $(document).ready(function() {
 <script type="text/javascript">
     $(document).ready(function() {
         $('#metas-table3').dataTable( {
-            dom: 'Bfrtip',
+            "scrollX": true,
+            dom: 'Brtip',
 
       buttons: [
             {
@@ -407,13 +408,7 @@ $(document).ready(function() {
             }
         
                 ],
-        "columnDefs": [{
-            "targets": 'nosort',
-                        "orderable" : false,
-                        "searchable": false,
-                        "printable" : false,
-                        "exportable" : false
-        }],
+       
          language: {
         
             "sProcessing":     "Procesando...",
@@ -446,8 +441,8 @@ $(document).ready(function() {
 <script>   
 $(document).ready(function() {
     var table = $('#metas-table4').DataTable({
-       "scrollX": true,
-        dom: 'Brtip',
+         "scrollX": true,
+            dom: 'Brtip',
        
         buttons: [
             {

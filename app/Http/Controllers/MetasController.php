@@ -33,19 +33,22 @@ class MetasController extends InfyOmBaseController
     public function index(Request $request)
     {
         $input = $request->all();
-       // $fech = $input['fec'];
+      
         //dd($input);
-       // $date = strtotime($fech);
-       // $anno= date("Y", $date);
-       // $mes1= date("m", $date);
+       
          if (isset($input['Empresa'])) { $idEmpresa = $input['Empresa']; }
         else { $idEmpresa = ''; } 
         if (isset($input['Departamento'])) { $idDepartamento = $input['Departamento']; }
         else { $idDepartamento = ''; }  
         if (isset($input['Nombre'])) { $Nombre = $input['Nombre']; }
         else { $Nombre = ''; }  
-        if (isset($input['fecha'])) {$ayo = $anno; $mes= $mes1; }
-        else { $ayo = ''; $mes= ''; }  
+        if(isset($input ['fecha'])){
+        $date = explode("-", $input['fecha']);
+         }
+        if (isset($input['fecha'])) {$ayo = $date[1];}
+        else { $ayo = '';} 
+        if (isset($input['fecha'])) {$mes = $date[0];}
+        else { $mes = '';} 
         if (isset($input['Reporte'])) { $idReporte = $input['Reporte']; }
         else { $idReporte = ''; }
         $idUsuario = '';
@@ -55,8 +58,8 @@ class MetasController extends InfyOmBaseController
         $idArea = '';
         $idSupervisor = '';
         $NumEmpleado = '';
-               
-        $metas= DB::select("EXEC [dbo].[sc_prose_MetasBusca01]
+         //  dd($date);    
+        $metas= DB::select("EXEC [dbo].[sc_prose_MetasBusca]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
                                 '".$esAdministradorProse."' ,
@@ -70,6 +73,8 @@ class MetasController extends InfyOmBaseController
                                 '".$ayo."' ,
                                 '".$mes."' ,
                                 '".$idReporte."'");
+ 
+    
     // llemar select list empresa
         $idUsuario = '';
         $esAdministrador = '';
@@ -109,7 +114,7 @@ class MetasController extends InfyOmBaseController
       
         $Reporte = $collection->lists('descripcion','id_Reporte');
 
-        return view('metas.index', compact('Empresa','Departamento', 'Reporte'))->with('metas', $metas);
+        return view('metas.index', compact('Empresa','Departamento', 'Reporte',  'idReporte'))->with('metas', $metas);
     }
 
     /**
@@ -154,24 +159,24 @@ class MetasController extends InfyOmBaseController
 
     {
          $input = $request->all();
-         $date1 = strtotime($input['des']);
-         $date2 = strtotime($input['al']);
-        $idUsuario = '';
+         $date1= explode("-", $input['des']);
+         $date2 = explode("-", $input['al']);
+        $idUsuario = '1';
         $esAdministrador = '';
         $esAdministradorProse = '';
         $idioma = '';
         $idSupervisor = $input['Supervisor'];
-        $AyoInicial = date("Y", $date1);
-        $MesInicial = date("m", $date1);
-        $Ayofinal= date("Y", $date2);
-        $MesFinal= date("m", $date2);
+        $AyoInicial = $date1[1];
+        $MesInicial = $date1[0];
+        $Ayofinal=  $date2[1];
+        $MesFinal=  $date2[0];
         $Inspecciones= $input['Inspecciones'];
         $Observaciones= $input['Observaciones'];
         $Reuniones= $input['Reuniones'];
         $Charlas=  $input['Charlas'];
         $Interacciones=  $input['Interaciones'];
        
-       // dd($input);
+       // dd($date1[0]);
         $metas= DB::statement("EXEC [dbo].[sc_prose_MetasAsignacionesGuarda]
                                 '".$idUsuario."',
                                 '".$esAdministrador."',
@@ -276,11 +281,11 @@ class MetasController extends InfyOmBaseController
     public function destroy($id)
     {
        $id_usuario =$id;
-       $ayoInicial ='';
-       $mesInicial ='';
-       $ayoFinal ='';
-       $mesFinal ='';
-        
+       $ayoInicial = date("Y");
+       $mesInicial =date("n");
+       $ayoFinal =date("Y");
+       $mesFinal =date("n");
+       
            $metas = DB::statement("EXEC [dbo].[sc_prose_MetasAsignacionesElimina]
                                 '".$id_usuario."',
                                 '".$ayoInicial."',
@@ -298,5 +303,11 @@ class MetasController extends InfyOmBaseController
             return redirect(route('metas.index'));
            
         
+    }
+      public function buscar(Request $request)
+    {
+            $input = $request->all();
+        
+          return redirect(route('metas.index'));
     }
      }

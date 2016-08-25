@@ -23,7 +23,7 @@
                     {!! Form::label('Nombre', 'Nombre:') !!}
                     {!! Form::text('Nombre', null, ['placeholder' =>' ','class' => 'form-control input-sm']) !!}
                 </div>
-          <div class="orm-group col-xs-3">
+          <div class="form-group col-xs-3">
     {!! Form::submit('Buscar', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('perfilesProses.index') !!}" class="btn btn-default">Cancelar</a>
     </div>

@@ -32,7 +32,7 @@
                   <a href="{{ url('metas') }}"> <span>METAS</span></a>
             </li>
             <li class="treeview">
-                  <a href="#"> <span>PARAMEDICO</span></a>
+                  <a href="{{ url('paramedicos') }}"> <span>PARAMEDICO</span></a>
             </li>
             <li class="treeview">
                  <a href="#"> <span>5 PILARES</span> <i class="fa fa-angle-left pull-right"></i></a>

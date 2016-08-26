@@ -59,24 +59,6 @@ class ParamedicoController extends InfyOmBaseController
        
 $Lesion='';
 $CAS ='';
-  
-       
-      /* if (isset($input['per1'])) {$Ayo_inicial = $date[2];}
-        else { $Ayo_inicial = '';} 
-        if (isset($input['per1'])) {$Mes_inicial = $date[1];}
-        else { $Mes_inicial = '';}
-        if (isset($input['per1'])) {$Dia_inicial = $date[0];}
-        else { $Dia_inicial = '';}
-        if(isset($input ['per2'])){
-        $date2 = explode("-", $input['per2']);
-         }
-        if (isset($input['per2'])) {$Ayo_final = $date2[2];}
-        else { $Ayo_final = '';} 
-        if (isset($input['per2'])) {$Mes_final = $date2[1];}
-        else { $Mes_final = '';}
-        if (isset($input['per2'])) {$Dia_final = $date2[0];}
-        else { $Dia_final = '';}*/
-//dd($date[2]);
 $Ayo_inicial ='2016';
 $Mes_inicial ='08';
 $Dia_inicial ='01';
@@ -88,7 +70,19 @@ $esAdministrador ='';
 $esAdministradorProse ='';
 $idioma='';
 
+$filemp=$idEmpresaResponsable;
+$fildep=$idDepartamento;
+$filare=$idArea;
+$filtur=$idTurno;
+$filinc=$idPersonaIncidentado;
+$filpar=$idParteDelcuerpo;
+$filcat=$idCategoria;
+$filsev=$idSeveridad;
+$filsup=$idPersonaSupervisor;
+$filfal=$idFaltaRegla;
+$filrep= $idReporte;
 
+//var_dump($fildep);
   
         $paramedicos= DB::select("EXEC [dbo].[sc_prose_ParamedicoB_Consulta]
                                 '".$idEmpresaResponsable."',
@@ -114,8 +108,47 @@ $idioma='';
                                 '".$esAdministrador."',
                                 '".$esAdministradorProse."' ,
                                 '".$idioma."'");
- 
-  
+
+         $array = json_decode(json_encode($paramedicos), true);
+         $perfile_new= array();
+         $datos  = array();
+         $cont = 0;
+         foreach ($array as $value) {
+              $cont = $cont + 1;
+              $perfile_new["ID"]             =  $value["ID"];
+              $perfile_new["Nombre"]         =  $value["Nombre incidentado"];
+              $perfile_new["Empresa"]        =  $value["Empresa"];
+              $perfile_new["Departamento"]   =  $value["Departamento"];
+              $perfile_new["Puesto"]         =  $value["Puesto"];
+              $perfile_new["Regla"]          =  $value["Regla afectada"];
+              $perfile_new["ParteC"]         =  $value["Parte cuerpo afectada"];
+              $perfile_new["FechaH"]         =  $value["Fecha hora incidente"];
+              $perfile_new["Turno"]          =  $value["Turno"];
+              $perfile_new["Lesionados"]     =  $value["Lesionados"];
+              $perfile_new["Ubicacion"]      =  $value["Ubicacion incidente"];
+              $perfile_new["Descripcion"]    =  $value["Descripcion incidente"];
+              $perfile_new["CAS"]            =  $value["Cantidad CAS"];
+              $perfile_new["FechaC"]         =  $value["Fecha captura"];
+              $perfile_new["Lesion"]         =  $value["Lesión"];
+              $perfile_new["HCN"]            =  $value["HCN-HAZMAT"];
+              $perfile_new["Danno"]          =  $value["Daño equipo"];
+              $perfile_new["Reglas"]         =  $value["7 Reglas Salva Vidas"];
+              $perfile_new["Alcoholemia"]    =  $value["Alcoholemia"];
+              $perfile_new["Apoyo"]          =  $value["Apoyo comunidad"];
+              $perfile_new["fauna"]          =  $value["Fauna nociva"];
+              $perfile_new["FTL"]            =  $value["FTL"];
+              $perfile_new["LTI"]            =  $value["LTI"];
+              $perfile_new["MAI"]            =  $value["MAI"];
+              $perfile_new["FAI"]            =  $value["FAI"];
+              $perfile_new["CUASI"]          =  $value["CUASI"];
+              $perfile_new["HIPO"]           =  $value["HIPO"];
+              $perfile_new["PFO"]            =  $value["PFO"];
+              $datos[$cont] = (object) $perfile_new;
+         }
+         $p = $datos;
+         $collection = Collection::make($p);
+         $paramedicos= $collection->all();
+
     // llemar select list empresa
         $idUsuario = '';
         $esAdministrador = '';
@@ -247,7 +280,7 @@ $idioma='';
       
         $Reporte = $collection->lists('reportes','idReporte');
 
-return view('paramedicos.index', compact('Empresa','Departamento', 'Area', 'Turno', 'Incidentado', 'Plesionada','Categoria', 'Severidad', 'SupTurno','Falta','Reporte',  'idReporte'))->with('paramedicos', $paramedicos);
+return view('paramedicos.index', compact('Empresa','Departamento', 'Area', 'Turno', 'Incidentado', 'Plesionada','Categoria', 'Severidad', 'SupTurno','Falta','Reporte','idReporte','filemp','fildep','filare','filtur','filinc','filpar','filcat','filsev','filsup','filfal','filrep'))->with('paramedicos', $paramedicos);
       
             
     }
@@ -257,9 +290,8 @@ return view('paramedicos.index', compact('Empresa','Departamento', 'Area', 'Turn
      *
      * @return Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $input = $request->all();
         $idUsuario = '';
         $esAdministrador = '';
         $esAdministradorProse = '';
@@ -317,7 +349,7 @@ return view('paramedicos.index', compact('Empresa','Departamento', 'Area', 'Turn
                                 '".$idioma."'"); 
        
         $collection = Collection::make($Plesionada);
-      //$ples= $input['Parte'];
+
         $Plesionada = $collection->lists('ParteCuerpo','id_pCuerpo');
 
         // llenar select list falta a la regla
@@ -442,4 +474,5 @@ return view('paramedicos.index', compact('Empresa','Departamento', 'Area', 'Turn
 
         return redirect(route('paramedicos.index'));
     }
+     
 }

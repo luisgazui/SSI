@@ -1,47 +1,47 @@
                    <div class="form-group col-sm-4">
                     {!! Form::label('Empresa', 'Empresa Responsable:') !!}
-                    {!! Form::select('Empresa', $Empresa, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Empresa', $Empresa, $filemp, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Departamento', 'Departamento:') !!}
-                    {!! Form::select('Departamento', $Departamento, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Departamento', $Departamento, $fildep, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Area', 'Area:') !!}
-                    {!! Form::select('Area', $Area, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Area', $Area, $filare, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Turno', 'Turno:') !!}
-                    {!! Form::select('Turno', $Turno, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Turno', $Turno, $filtur, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Incidentado', 'Incidentado:') !!}
-                    {!! Form::select('Incidentado', $Incidentado, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Incidentado', $Incidentado, $filinc, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Parte', 'Parte Lesionada:') !!}
-                    {!! Form::select('Parte', $Plesionada, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Parte', $Plesionada, $filpar, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Categoria', 'Categoria:') !!}
-                    {!! Form::select('Categoria', $Categoria, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Categoria', $Categoria, $filcat, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Severidad', 'Severidad:') !!}
-                    {!! Form::select('Severidad', $Severidad, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Severidad', $Severidad, $filsev, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Supervisor', 'Supervisor en turno:') !!}
-                    {!! Form::select('Supervisor', $SupTurno, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Supervisor', $SupTurno, $filsup, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Falta', 'Falta a la Regla:') !!}
-                    {!! Form::select('Falta', $Falta, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Falta', $Falta, $filfal, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
 
                 <div class="form-group col-sm-4">
                     {!! Form::label('Reporte', 'Reporte:') !!}
-                    {!! Form::select('Reporte', $Reporte, null, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
+                    {!! Form::select('Reporte', $Reporte, $filrep, ['placeholder' =>' ','class'=>'selectpicker form-control input-sm', 'data-live-search' =>"true"]) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     {!! Form::label('Periodo', 'Periodo:') !!}

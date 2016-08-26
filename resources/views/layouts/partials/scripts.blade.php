@@ -573,6 +573,138 @@ $(document).ready(function() {
     } );
 } );    
 </script> 
+<script>   
+$(document).ready(function() {
+    var table = $('#Paramedico1-table').DataTable({
+         "scrollX": true,
+            dom: 'Brtip',
+       
+        buttons: [
+            {
+                extend:'csv',
+                title:'Parmedico'
+            }, 
+            {
+                extend:'excel',
+                title: 'Parmedico'
+                 
+            }, 
+            {
+                extend:'pdf',
+                title: 'Parmedico'
+            }
+        
+                ],
+                language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    } );
+} );    
+</script> 
+<script>   
+$(document).ready(function() {
+    var table = $('#Paramedico2-table').DataTable({
+         "scrollX": true,
+            dom: 'Brtip',
+       
+        buttons: [
+            {
+                extend:'csv',
+                title:'Parmedico'
+            }, 
+            {
+                extend:'excel',
+                title: 'Parmedico'
+                 
+            }, 
+            {
+                extend:'pdf',
+                title: 'Parmedico'
+            }
+        
+                ],
+                language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    } );
+} );    
+</script> 
+<script>   
+$(document).ready(function() {
+    var table = $('#Paramedico3-table').DataTable({
+         dom: 'rtip',
+                language: {
+        
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Ãšltimo",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    } );
+} );    
+</script> 
 <script>
  $("input[name='Inspecciones']").TouchSpin({
     min: 0,
@@ -602,4 +734,11 @@ $(document).ready(function() {
     min: 0,
     max: 50,
  });
+</script>
+
+<script>
+function myFunction() {
+    var x = $("#Parte option:selected").text();
+    document.getElementById("Paramedico3-table").innerHTML = x;
+}
 </script>

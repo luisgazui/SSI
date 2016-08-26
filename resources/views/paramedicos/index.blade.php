@@ -15,12 +15,25 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-             {!! Form::open(['route' => 'metasBusca', 'method' => 'post']) !!}
+             {!! Form::open(['route' => 'paramedicosBusca', 'method' => 'post']) !!}
 
                     @include('paramedicos.filtros')
 
              {!! Form::close() !!}
-                    @include('paramedicos.table')
+             @if($idReporte === ' ')
+                        
+              @include('paramedicos.table')
+
+             @elseif($idReporte === '1')
+
+              @include('paramedicos.table1')
+
+              @elseif($idReporte === '2')
+
+              @include('paramedicos.table2')
+
+              @endif
+                   
             </div>
         </div>
     </div>

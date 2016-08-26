@@ -58,4 +58,5 @@ Route::resource('perfilesProses', 'PerfilesProseController');
 Route::post('metasBusca',  array('as' => 'metasBusca', 'uses' => 'MetasController@index'));
 Route::resource('metas', 'MetasController');
 Route::post('paramedicosBusca',  array('as' => 'paramedicosBusca', 'uses' => 'ParamedicoController@index'));
+
 Route::resource('paramedicos', 'ParamedicoController');
